@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import mongoose from "mongoose";
 
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
