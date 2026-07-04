@@ -1,0 +1,14 @@
+name: Keep MongoDB Active
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Once per day
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping backend
+        run: curl -f https://auth-system-h8qv.onrender.com/health

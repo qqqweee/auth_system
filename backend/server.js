@@ -43,6 +43,15 @@ app.get("/", (req, res) => {
   res.send("API running...");
 });
 
+app.get("/health", async (req, res) => {
+  try {
+    await mongoose.connection.db.admin().ping();
+    res.status(200).send("OK");
+  } catch (err) {
+    res.status(500).send("DB Error");
+  }
+});
+
 // Error handling
 app.use(notFound);
 app.use(errorHandler);
